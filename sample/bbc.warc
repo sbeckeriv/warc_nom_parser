@@ -1,0 +1,1012 @@
+WARC/1.0
+WARC-Type: response
+WARC-Date: 2014-08-02T09:52:13Z
+WARC-Record-ID: <urn:uuid:ffbfb0c0-6456-42b0-af03-3867be6fc09f>
+Content-Length: 43428
+Content-Type: application/http; msgtype=response
+WARC-Warcinfo-ID: <urn:uuid:3169ca8e-39a6-42e9-a4e3-9f001f067bdf>
+WARC-Concurrent-To: <urn:uuid:d99f2a24-158a-4c77-bb0a-3cccd40aad56>
+WARC-IP-Address: 212.58.244.61
+WARC-Target-URI: http://news.bbc.co.uk/2/hi/africa/3414345.stm
+WARC-Payload-Digest: sha1:M63W6MNGFDWXDSLTHF7GWUPCJUH4JK3J
+WARC-Block-Digest: sha1:YHKQUSBOS4CLYFEKQDVGJ457OAPD6IJO
+WARC-Truncated: length
+
+HTTP/1.1 200 OK
+Server: Apache
+Vary: X-CDN
+Cache-Control: max-age=0
+Content-Type: text/html
+Date: Sat, 02 Aug 2014 09:52:13 GMT
+Expires: Sat, 02 Aug 2014 09:52:13 GMT
+Connection: close
+Set-Cookie: BBC-UID=15730d9c1b741c0d3942e2aca1317fbf39e57b90be68a329d375ba9d5a8964080CCBot%2f2%2e0%20%28http%3a%2f%2fcommoncrawl%2eorg%2ffaq%2f%29; expires=Sun, 02-Aug-15 09:52:13 GMT; path=/; domain=bbc.co.uk;
+Set-Cookie: BBC-UID=15730d9c1b741c0d3942e2aca1317fbf39e57b90be68a329d375ba9d5a8964080CCBot%2f2%2e0%20%28http%3a%2f%2fcommoncrawl%2eorg%2ffaq%2f%29; expires=Sun, 02-Aug-15 09:52:13 GMT; path=/; domain=bbc.co.uk;
+
+<!doctype html public "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+<title>
+	BBC NEWS | Africa | Namibia braces for Nujoma exit
+</title>
+
+<meta name="keywords" content="BBC, News, BBC News, news online, world, uk, international, foreign, british, online, service" />
+<meta name="OriginalPublicationDate" content="2004/01/22 00:48:49" />
+
+    <meta name="UKFS_URL" content="/1/hi/world/africa/3414345.stm" />
+    <meta name="IFS_URL" content="/2/hi/africa/3414345.stm" />
+
+<meta http-equiv="content-type" content="text/html;charset=iso-8859-1" />
+
+
+<meta name="Headline" content="Namibia braces for Nujoma exit" />
+<meta name="Section" content="Africa" />
+<meta name="Description" content="Namibians seek a successor of President Nujoma  who steps down this year after 14 years rule" />
+<!-- IFS index -->
+<link type="text/css" rel="stylesheet" href="/css/screen/nol/story.css?v1" />
+<style type="text/css" media="all">
+	@import "/css/screen/shared/styles.css";
+	@import '/css/screen/shared/toolbar_ukfs.css';	
+	@import '/css/screen/shared/toolbar_ifs.css';
+	@import "/css/screen/nol/styles.css";
+	@import "/css/screen/nol/furniture.css";
+	@import "/css/screen/nol/promo.css";
+	@import "/css/screen/nol/programmes.css";
+	@import "/css/screen/nol/ifs.css";
+</style>
+
+<script type="text/javascript">
+<!--
+var _SERVERLOC="THDO";
+
+
+ 
+
+var _userLocation = 'INTERNATIONAL';
+-->
+</script>
+<!--newsi library v1.28-->
+<script src="http://news.bbcimg.co.uk/js/newsi/latest/newsi.js?9" type="text/javascript"></script>
+<!-- SITEVERSION = (none) -->
+
+<!-- ADDED FOR OLD V3 PAGES TO CALL IN GLOADER -->
+<script type="text/javascript" src="http://www.bbc.co.uk/glow/gloader.js"></script>
+<script type="text/javascript" src="http://news.bbcimg.co.uk/js/app/shared/bbc_fmtj.js"></script> 
+<script src="http://news.bbcimg.co.uk/js/app/tracker/tracker.js?v2" language="JavaScript"></script>
+
+<script src="http://newsimg.bbc.co.uk/nol/shared/js/nol4.js?v2" language="JavaScript" type="text/javascript"></script>
+<script src="http://newsimg.bbc.co.uk/nol/shared/js/livestats_v1_1.js" language="JavaScript" type="text/javascript"></script>
+<script src="http://newsimg.bbc.co.uk/nol/ukfs_news/js/av.js?v2" language="JavaScript" type="text/javascript"></script> 
+<script src="http://www.bbc.co.uk/radio/aod/radioplayer.js" type="text/javascript"></script>
+
+</head>
+
+<body bgcolor="#ffffff" text="#000000">
+
+<a name="top" id="top"></a>
+<!-- START TOOLBAR -->	
+	<div id="ift-toolbar" class="ift-news">
+	<div id="ift-wrap">
+	<div id="ift-accesskeys"><a href="#startcontent" accesskey="2"><img src="http://newsimg.bbc.co.uk/shared/img/o.gif" alt="Skip to main content" border="0" /></a><a href="http://www.bbc.co.uk/accessibility/accesskeys/keys.shtml" accesskey="0"><img src="http://newsimg.bbc.co.uk/shared/img/o.gif" alt="Access keys help" border="0" /></a><a href="http://www.bbc.co.uk/a-z/" accesskey="3">
+	<!--- start live stats logic --->
+	
+
+
+
+<img alt="" id="livestats" src="http://stats.bbc.co.uk/o.gif?~RS~s~RS~News~RS~t~RS~HighWeb_Legacy~RS~i~RS~3414345~RS~p~RS~0~RS~a~RS~International~RS~u~RS~/2/hi/africa/3414345.stm~RS~r~RS~(none)~RS~q~RS~~RS~z~RS~13~RS~"/>
+
+
+
+
+	<!--- end live stats logic ---></a></div>
+		<div id="ift-logo"><a href="http://www.bbc.co.uk/go/toolbar/i/-/home/i/" accesskey="1"><img src="http://newsimg.bbc.co.uk/shared/img/toolbar_logo.gif" alt="BBC logo" /></a></div>
+		<div id="ift-tabs"><ul><li><div><a href="http://www.bbc.co.uk/go/toolbar/i/text/-/home/i/">Home</a></div></li><li id="ift-current"><div><a href="http://www.bbc.co.uk/go/toolbar/i/-/news/2/hi/">News</a></div></li><li><div><a href="http://www.bbc.co.uk/go/toolbar/i/-/news/sport2/hi/">Sport</a></div></li><li><div><a href="http://www.bbc.co.uk/go/toolbar/i/-/radio/i/">Radio</a></div></li><li><div><a href="http://www.bbc.co.uk/go/toolbar/i/-/tv/i/">TV</a></div></li><li><div><a href="http://www.bbc.co.uk/go/toolbar/i/-/weather/i/">Weather</a></div></li><li><div><a href="http://www.bbc.co.uk/go/toolbar/i/-/worldservice/languages/">Languages</a></div></li></ul><br class="ift-clear" /></div>
+		<div id="ift-search">
+	<form action="http://search.bbc.co.uk/cgi-bin/search/results.pl" accept-Charset="UTF-8">
+	<input type="hidden" name="scope" value="all" />	
+	<input type="hidden" name="edition" value="i" /> 
+	<input type="text" id="ift-searchbox" name="q" size="10" title="BBC Search" accesskey="4"/>
+	<input type="image" id="ift-searchbutton" src="http://newsimg.bbc.co.uk/shared/img/v3_tb/search_button.gif" name="go" value="go" alt="Search"/>
+</form>
+		</div><br class="ift-clear" />
+	</div>
+</div>
+<!-- END TOOLBAR -->
+[an error occurred while processing this directive]
+<div id="ift-banner" class="ift-news">
+<div id="ift-extra" style="padding:2px 0 0 0;height:1.5em;width:760px;">
+	<div class="fr">
+<a href="http://news.bbc.co.uk/text_only.stm" class="extraLink" onClick="goToOtherBandwidth(this);return false;">Low graphics</a><span class="pipe">|</span><a href="http://www.bbc.co.uk/accessibility/" class="extraLink">Accessibility help</a>
+	</div>
+</div>
+<div class="clear"></div>
+</div>
+
+<table cellpadding="0" cellspacing="0" border="0" width="760">
+	<tr>
+		<td width="121" valign="top">
+		<a href="http://news.bbc.co.uk/"><img src="http://newsimg.bbc.co.uk/nol/shared/img/v3/bbc_logo.gif" width="121" height="64" border="0" alt="BBC News" /></a></td>
+		<td width="436" valign="top">
+
+		<table cellpadding="0" cellspacing="0" border="0" width="100%">
+		<tr>
+		<td valign="middle" class="banmain">
+		<a href="http://www.bbc.co.uk/mediaselector/check/player/nol/newsid_6900000/newsid_6903100?redirect=6903113.stm&amp;news=1&amp;nbram=1&amp;nbwm=1&amp;bbwm=1&amp;bbram=1&amp;asb=1" onClick="javascript:newsi.utils.av.launch({el:this});return false;">
+	<img src="http://newsimg.bbc.co.uk/nol/shared/img/v3/icons/video_text.gif" align="left" width="57" height="13" alt="watch" border="0" vspace="0" hspace="0" />
+					One-Minute World News
+</a><br clear="all" />
+		</td>
+		</tr>
+		</table>
+
+		</td>
+		<td width="203" valign="top">
+			<table cellpadding="0" cellspacing="0" border="0" width="100%">
+			<tr>
+			<td valign="middle" class="banaddition">
+			<div>
+			<a href="http://news.bbc.co.uk/go/news/int/banner/story/services/-/2/hi/help/products_and_services/default.stm">
+				<img height="50" hspace="0" align="right" vspace="0" border="0" width="50" alt="mobiles" src="http://newsimg.bbc.co.uk/nol/shared/img/v3/icons/services_gen.gif" />
+					<b>News services</b>
+					<br />Your news when you want it
+			</a>
+			<br clear="all" />
+			</div>
+
+			</td>
+			</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+
+<!-- pulse survey core code OFF -->
+
+
+<!-- Only serve to UK IP, non-story pages, where host matches -->
+ <!-- end initial checks (IP, pageType, host) -->
+
+<!-- end pulse survey core code -->
+<!-- pulse survey invite code popup-->
+
+   <!-- end bbcpage_survey_go -->
+
+<!-- end pulse survey invite -->
+
+<table border="0" cellpadding="0" cellspacing="0" width="760">
+    <tr>
+        <td width="121" valign="top">
+    
+
+			
+
+<div class="lhs">
+	
+		
+	
+		
+		
+			<div class="lhsb">
+				<a href="/2/hi/default.stm">News Front Page</a>
+			</div>
+			<div class="o">
+				<img src="http://news.bbcimg.co.uk/nol/shared/img/nav/v3_map_africa_rb.gif" width="92" height="54" alt="" border="0" usemap="#world_map">
+			</div>
+		
+	
+	
+	
+	
+	
+
+
+
+
+	
+		
+			<div class="lhssqs">
+				<a href="/2/hi/africa/default.stm">Africa</a>
+			</div>
+			
+			
+
+		
+		
+	
+	
+	
+	
+	
+
+
+
+
+	
+		
+		
+			<div class="lhsb">
+				<a href="/2/hi/americas/default.stm">Americas</a>
+			</div>
+			
+		
+	
+	
+	
+	
+	
+
+
+
+
+	
+		
+		
+			<div class="lhsb">
+				<a href="/2/hi/asia-pacific/default.stm">Asia-Pacific</a>
+			</div>
+			
+		
+	
+	
+	
+	
+	
+
+
+
+
+	
+		
+		
+			<div class="lhsb">
+				<a href="/2/hi/europe/default.stm">Europe</a>
+			</div>
+			
+		
+	
+	
+	
+	
+	
+
+
+
+
+	
+		
+		
+			<div class="lhsb">
+				<a href="/2/hi/middle_east/default.stm">Middle East</a>
+			</div>
+			
+		
+	
+	
+	
+	
+	
+
+
+
+
+	
+		
+		
+			<div class="lhsb">
+				<a href="/2/hi/south_asia/default.stm">South Asia</a>
+			</div>
+			
+		
+	
+	
+	
+	
+	
+
+
+
+
+	
+		
+		
+			<div class="lhsb">
+				<a href="/2/hi/uk_news/default.stm">UK</a>
+			</div>
+			
+		
+	
+	
+	
+	
+	
+
+
+
+
+	
+		
+		
+			<div class="lhsb">
+				<a href="/2/hi/business/default.stm">Business</a>
+			</div>
+			
+		
+	
+	
+	
+	
+	
+
+
+
+
+	
+		
+		
+			<div class="lhsb">
+				<a href="/2/hi/health/default.stm">Health</a>
+			</div>
+			
+		
+	
+	
+	
+	
+	
+
+
+
+
+	
+		
+		
+			<div class="lhsb">
+				<a href="/2/hi/science/nature/default.stm">Science & Environment</a>
+			</div>
+			
+		
+	
+	
+	
+	
+	
+
+
+
+
+	
+		
+		
+			<div class="lhsb">
+				<a href="/2/hi/technology/default.stm">Technology</a>
+			</div>
+			
+		
+	
+	
+	
+	
+	
+
+
+
+
+	
+		
+		
+			<div class="lhsb">
+				<a href="/2/hi/entertainment/default.stm">Entertainment</a>
+			</div>
+			
+		
+	
+	
+	
+	
+	
+
+
+
+
+	
+		
+		
+			<div class="lhsb">
+				<a href="/2/hi/also_in_the_news/default.stm">Also in the news</a>
+			</div>
+			
+		
+	
+	
+	<div class="lhsdl">-----------------</div>
+	
+	
+
+
+
+
+	
+		
+		
+			<div class="lhsl">
+				<a href="/2/hi/video_and_audio/default.stm">Video and Audio</a>
+			</div>
+			
+		
+	
+	
+	<div class="lhsdl">-----------------</div>
+	
+	
+
+
+
+
+
+
+	
+		
+		
+			<div class="lhsb">
+				<a href="/2/hi/programmes/default.stm">Programmes</a>
+			</div>
+			
+		
+	
+	
+	
+	
+	
+
+
+
+
+	
+		
+		
+			<div class="lhsl">
+				<a href="/2/hi/talking_point/default.stm">Have Your Say</a>
+			</div>
+			
+		
+	
+	
+	
+	
+	
+
+
+
+
+	
+		
+		
+			<div class="lhsl">
+				<a href="/2/hi/in_pictures/default.stm">In Pictures</a>
+			</div>
+			
+		
+	
+	
+	
+	
+	
+
+
+
+
+	
+		
+		
+			<div class="lhsl">
+				<a href="/2/hi/country_profiles/default.stm">Country Profiles</a>
+			</div>
+			
+		
+	
+	
+	
+	
+	
+
+
+
+
+	
+		
+		
+			<div class="lhsl">
+				<a href="/2/hi/in_depth/default.stm">Special Reports</a>
+			</div>
+			
+		
+	
+	
+	
+	
+	
+
+
+
+
+
+	
+</div>
+
+
+
+
+    
+    
+
+		<!-- <div class="lhs" style="padding:2px 0px 0px 0px">
+<div class="lhsl">
+		<a href="/1/hi/uk_politics/general_election_2007/default.stm"><b>Election 2007</b></a>
+</div>
+</div> -->
+
+<div class="lhsad"><script language="JavaScript">getRssUrl()</script></div>
+<div class="lhsad">
+<div class="lhsnlp">RELATED BBC SITES</div>
+<ul id="lhsOtherSites">
+	<li><a href="http://news.bbc.co.uk/sport1/hi/default.stm" title="Home of BBC Sport on the internet" class="relatedSitesLink">SPORT</a></li>
+	<li><a href="http://www.bbc.co.uk/weather/i/" title="Weather information from around the world" class="relatedSitesLink">WEATHER</a></li>
+	<li><a href="http://www.bbc.co.uk/onthisday" title="BBC On This Day" class="relatedSitesLink">ON THIS DAY</a></li>
+	<li><a href="http://www.bbc.co.uk/blogs/theeditors/" title="Editors' Blog" class="relatedSitesLink">EDITORS' BLOG</a></li>	
+</ul>
+</div>
+
+	
+		<div class="lang">Languages</div>
+<ul id="languages">
+	<li id="somaliLoz"><a href="http://www.bbc.co.uk/somali" title="BBCSomali.com">Somali</a></li>
+	<li id="frenchLoz"><a href="http://www.bbc.co.uk/french" title="Kifaransa kwa Afrika">French</a></li>
+	<li id="arabicLoz"><a href="http://www.bbc.co.uk/arabic" title="BBCArabic.com">Arabic</a></li>
+	<li id="swahiliLoz"><a href="http://www.bbc.co.uk/swahili" title="BBCSwahili.com">Swahili</a></li>	
+	<li id="greatlakesLoz"><a href="http://www.bbc.co.uk/greatlakes/" title="BBCGreatLakes.com">Great Lakes</a></li>
+	<li id="hausaLoz"><a href="http://www.bbc.co.uk/hausa/" title="BBCHausa.com">Hausa</a></li>	
+	<li id="portugueseafricaLoz"><a href="http://www.bbc.co.uk/portugueseafrica/" title="BBCPortugueseAfrica.com">Portuguese Africa</a></li>	
+	<li id="moreLoz"><a href="http://www.bbc.co.uk/worldservice/languages/" title="More languages from the BBC">More</a></li>	
+</ul>
+<img height="1" width="1" src="http://switch.atdmt.com/action/agencyrep_bbc_usa_africa_home" alt="" />
+<!--  -->
+</td>
+        <td width="10"><img height="1" hspace="0" vspace="0" border="0" width="10" alt="" src="http://newsimg.bbc.co.uk/shared/img/o.gif" /></td>
+        <td width="629" valign="top">
+            <table width="629" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td valign="top" width="629">
+                        
+                        
+<a name="startcontent"></a><span class="ds"><span class="lu">Last Updated: </span>Thursday, 22 January, 2004, 00:48 GMT
+
+</span>
+<img height="2" hspace="0" vspace="0" border="0" width="2" alt="" src="http://newsimg.bbc.co.uk/shared/img/o.gif" />
+<div class="mvb"><img height="1" hspace="0" vspace="0" border="0" width="629" alt="" src="http://newsimg.bbc.co.uk/nol/shared/img/v3/dot_629.gif" /></div>
+
+
+                        
+    
+        <div class="mvtb"><table border="0" width="416" cellspacing="0" cellpadding="0"><tr>
+            <td width="213"><a onClick="popUpPage('http://newsvote.bbc.co.uk/mpapps/pagetools/email/news.bbc.co.uk/2/hi/africa/3414345.stm','status=no,scrollbars=yes,resizable=yes,width=370,height=445','Mailer')" href="http://newsvote.bbc.co.uk/mpapps/pagetools/email/news.bbc.co.uk/2/hi/africa/3414345.stm" class="epl" target="Mailer">
+                <img height="11" hspace="3" align="left" vspace="0" border="0" width="17" alt="" src="http://newsimg.bbc.co.uk/nol/shared/img/v3/email.gif" />
+                E-mail this to a friend
+            </a></td>
+            <td width="203"><a onClick="popUpPage('http://newsvote.bbc.co.uk/mpapps/pagetools/print/news.bbc.co.uk/2/hi/africa/3414345.stm','status=no,scrollbars=yes,toolbar=yes,resizable=yes,menubar=yes,width=600,height=445','Printer')" href="http://newsvote.bbc.co.uk/mpapps/pagetools/print/news.bbc.co.uk/2/hi/africa/3414345.stm" class="epl" target="Printer">
+	       	<img height="11" hspace="3" align="left" vspace="0" border="0" width="17" alt="" src="http://newsimg.bbc.co.uk/nol/shared/img/v3/print.gif" />
+	 	Printable version
+            </a></td>
+        </tr></table></div>
+    
+
+
+                    </td>
+                </tr>
+            </table>
+            <table width="629" border="0" cellpadding="0" cellspacing="0">
+		
+                
+		<tr>
+		    <td colspan="3"><div class="mxb"><div class="sh">Namibia braces for Nujoma exit<br /></div></div></td>
+		</tr>
+    		
+		
+                <tr>
+                    <td valign="top" width="416">
+                        
+    <font size="2">
+        <!-- S BO -->
+<!-- S IBYL -->
+<div class="mvb">
+
+
+    <table border="0" width="416" cellpadding="0" cellspacing="0">
+        <tr>
+        <td valign="bottom">
+            <div class="mvb">
+                
+                    
+                    <span class="byl">
+                        
+	By Robin White
+
+
+
+                    </span>
+                
+                
+                    <br />
+                    <span class="byd">
+                        
+	BBC's former Focus on Africa editor
+
+
+
+                    </span>
+                
+            </div>
+        </td>
+        </tr>
+    </table><img height="1" hspace="0" vspace="0" border="0" width="416" alt="" src="http://newsimg.bbc.co.uk/shared/img/999999.gif" /><br />
+
+
+
+
+</div>
+<!-- E IBYL -->
+
+
+
+	<b>President Sam Nujoma works in very pleasant surroundings in the small but beautiful old State House slap bang in the middle of Windhoek just a stone throw  away from Namibia's equally beautiful parliament</b>  
+<p>
+The question on everyone's lips is why on earth does he want to build a new State House. 
+<p>
+
+
+
+
+<!-- S IIMA -->
+	
+		<table cellspacing="0" align="right" border="0" width="203" cellpadding="0">
+			<tr><td>
+			<div>
+				<img height="152" hspace="0" vspace="0" border="0" width="203" alt="Sam Nujoma" src="http://newsimg.bbc.co.uk/media/images/39766000/jpg/_39766923_nujoma203ap.jpg" />
+				<div class="cap">President Nujoma may be a hard act to follow in Namibia</div>
+			</div>
+			</td></tr>
+		</table>
+		
+	
+
+	
+<!-- E IIMA -->
+
+	Currently a massive concrete presidential monstrosity is being erected on the outskirts of the capital costing millions of Namibian dollars at a time when the Namibian Government is appealing for relief aid for drought victims.
+<p>
+ President Nujoma will never occupy the new State House if he keeps his word and retires this year, but his successor will have lots of space to rattle around in.
+<p>
+<b>'Silly questions'</b>
+<p>
+With his white beard and ever-present smile, President Nujoma looks a bit like a black Father Christmas. 
+<p>
+He is not as amiable as he looks as he does not believe he should be answerable to journalists, or  to the Namibian people as a whole. 
+<p>
+Mr Nujoma thinks he only has to answer to the ruling party  South West African Peoples Organisation (Swapo)
+<p>
+When I ask him why he is building a new State House, he replies: "Because that is the decision of Swapo."
+<p>
+He claims  the current State House is inadequate for a president's needs - it is  too small and there is no room in the car park for the limousines of visiting dignitaries.
+<p>
+But aren't there bigger priorities, like drought relief, I ask.
+<p>
+<b>Untested 'broom'</b>
+<p>
+Have you come all the way from London to ask me silly questions like that, he snaps back. 
+<p>
+That is the decision of  Swapo which was elected by the vast majority of the Namibian people.
+<p>
+
+
+
+
+<!-- S IIMA -->
+	
+		<table cellspacing="0" align="right" border="0" width="203" cellpadding="0">
+			<tr><td>
+			<div>
+				<img height="220" hspace="0" vspace="0" border="0" width="203" alt="Swapo poster" src="http://newsimg.bbc.co.uk/media/images/39766000/jpg/_39766937_swapo203.jpg" />
+				<div class="cap">Despite the presence of active opposition parties Swapo is strong</div>
+			</div>
+			</td></tr>
+		</table>
+		
+	
+
+	
+<!-- E IIMA -->
+
+	Mr Nujoma is equally unforthcoming about his retirement plans or about who might succeed him. 
+<p>
+In spite of his sometimes abrupt manner, President Nujoma is still  popular and if he really does retire, he will be a hard act to follow. 
+<p>
+There are no obvious candidates for the top job. Those closest to him are nearly as old as he is but much less revered. 
+<p>
+Swapo has to chose whether to go for a stop gap, like the current Lands Minister Hifikepunye Pohamba, who is the first minister to announce his intention of running for president,  or find a younger, untested "broom".
+<p>
+But the opposition are still not convinced that Mr Nujoma will retire.
+<p>
+<b>Ovamboland</b>
+<p>
+At his large office, overlooking fountains and flower beds at Windhoek's parliament,  the leader of the opposition Congress of Democrats, Ben Ulenga, is planning optimistically for all eventualities. 
+<p>
+Mr Ulenga claims  if Mr Nujoma stays in power, Namibians will be angry and turn against Swapo.
+<p>
+And If he keeps his word, then Swapo will not be able to find anyone of similar stature - so either way the opposition will make inroads into Swapo's large parliamentary majority.
+<p>
+But for Mr Ulenga to make it to the top, he will  have to make a major impact in Ovamboland in the north which is Swapo's heartland and is by far the most densely populated  region of Namibia. 
+<p>
+
+
+
+
+    
+    <!-- S IBOX -->
+	<table cellspacing="0" cellpadding="0" width="208" align="right" border="0">
+	<tr>
+            <td width="5"><img height="1" hspace="0" vspace="0" border="0" width="5" alt="" src="http://newsimg.bbc.co.uk/shared/img/o.gif" /></td>
+            <td class="sibtbg">
+                
+		
+                
+                     
+                    <div>
+	<div class="mva">
+		<img height="13" border="0" width="24" alt="" src="http://newsimg.bbc.co.uk/nol/shared/img/v3/start_quote_rb.gif" />
+		<b>
+	Land redistribution must be on the agreed willing buyer willing seller basis
+
+
+</b>
+		<img height="13" align="right" vspace="0" border="0" width="23" alt="" src="http://newsimg.bbc.co.uk/nol/shared/img/v3/end_quote_rb.gif" /><br clear="all"/>	</div>
+
+
+
+
+</div>
+                
+                     
+                    <div class="mva">
+	<div>
+	President Nujoma
+
+
+</div>
+
+
+</div>
+                
+            </td>
+        </tr>
+	</table>
+	
+    <!-- E IBOX -->
+    
+
+
+
+
+	Although he is an Ovambo tribesman like President Nujoma,  he did very poorly in Ovamboland at the last elections, but he now hopes to do much better  with the president out of the way.
+<p>
+<b>Mugabe's admirer</b>
+<p>
+Swapo has been careful to secure the Ovambo vote by ploughing a large slice of development funding into the region, and the people there get more than their fair share of government positions.
+<p>
+For the moment, Mr Nujoma's biggest headache is land reform. 
+<p>
+Huge tracks of land are still owned by  a few white farmers and black Namibians are impatient at the slow pace of reform. 
+<p>
+White farmers say they are falling over backwards to please the government, but Mr  Pahamba says that  they are only handing over poor quality land. 
+<p>
+Meanwhile, the militant black farmer's union is threatening farm occupations similar to those in  Zimbabwe. 
+<p>
+<b>Guard dogs</b>
+<p>
+The union leaders also claim that, just like Zimbabwe, many white farms are ending up in the hands of government officials. 
+<p>
+President Nujoma - an admirer of Robert Mugabe -   also points accusing fingers at whites, but he is adamant that Namibia is not Zimbabwe and that no-one will be allowed to break the law. 
+<p>
+
+
+
+
+<!-- S IIMA -->
+	
+		<table cellspacing="0" align="right" border="0" width="203" cellpadding="0">
+			<tr><td>
+			<div>
+				<img height="152" hspace="0" vspace="0" border="0" width="203" alt="Windhoek" src="http://newsimg.bbc.co.uk/media/images/39766000/jpg/_39766951_namibia203.jpg" />
+				<div class="cap">Namibia remains amazingly unchanged  after 14 years of independence. </div>
+			</div>
+			</td></tr>
+		</table>
+		
+	
+
+	
+<!-- E IIMA -->
+
+	Land redistribution, he says,  must be on the agreed willing seller, willing buyer basis. 
+<p>
+Namibia has remained amazingly unchanged  after 14 years of  independence. 
+<p>
+Windhoek is still a very white city. 
+<p>
+Shopping malls proliferate, supermarkets are well stocked, streets are immaculately clean. 
+<p>
+Everyone seems remarkably law abiding, and it is not just the security fences and guard dogs which are keeping people in order. 
+<p>
+Somehow, nobody wants to rock the boat, and if they do, they will have President Nujoma to contend with.
+<p>
+ 
+ 
+
+
+
+
+<!-- E BO -->
+    </font>
+<br /><br clear="all" />
+                        
+    
+        <div class="mvtb"><table border="0" width="416" cellspacing="0" cellpadding="0"><tr>
+            <td width="213"><a onClick="popUpPage('http://newsvote.bbc.co.uk/mpapps/pagetools/email/news.bbc.co.uk/2/hi/africa/3414345.stm','status=no,scrollbars=yes,resizable=yes,width=370,height=445','Mailer')" href="http://newsvote.bbc.co.uk/mpapps/pagetools/email/news.bbc.co.uk/2/hi/africa/3414345.stm" class="epl" target="Mailer">
+                <img height="11" hspace="3" align="left" vspace="0" border="0" width="17" alt="" src="http://newsimg.bbc.co.uk/nol/shared/img/v3/email.gif" />
+                E-mail this to a friend
+            </a></td>
+            <td width="203"><a onClick="popUpPage('http://newsvote.bbc.co.uk/mpapps/pagetools/print/news.bbc.co.uk/2/hi/africa/3414345.stm','status=no,scrollbars=yes,toolbar=yes,resizable=yes,menubar=yes,width=600,height=445','Printer')" href="http://newsvote.bbc.co.uk/mpapps/pagetools/print/news.bbc.co.uk/2/hi/africa/3414345.stm" class="epl" target="Printer">
+	       	<img height="11" hspace="3" align="left" vspace="0" border="0" width="17" alt="" src="http://newsimg.bbc.co.uk/nol/shared/img/v3/print.gif" />
+	 	Printable version
+            </a></td>
+        </tr></table></div>
+    
+
+
+                        <div class="mvtb">
+    
+
+
+    
+    
+</div><br />
+                    </td>
+                    <td width="10" valign="top"><img height="1" hspace="0" vspace="0" border="0" width="10" alt="" src="http://newsimg.bbc.co.uk/shared/img/o.gif" /></td>
+                    <td width="203" valign="top">
+			
+                        
+
+
+
+    
+    
+        <div class="sah">
+            SEE ALSO:
+        </div>
+    
+    
+    
+        <div class="arr">
+            
+	
+		<a href="/2/hi/africa/3251597.stm">
+			
+			
+			
+			Deal ends Namibian land invasions
+			
+		</a>
+		
+			<br />
+		
+	
+
+            
+                <span class="sad">
+                    07 Nov 03
+
+&nbsp;|&nbsp;
+                    Africa
+                    
+                </span>
+            
+            
+        </div>
+    
+        <div class="arr">
+            
+	
+		<a href="/2/hi/africa/2219403.stm">
+			
+			
+			
+			Surprise reshuffle in Namibia
+			
+		</a>
+		
+			<br />
+		
+	
+
+            
+                <span class="sad">
+                    27 Aug 02
+
+&nbsp;|&nbsp;
+                    Africa
+                    
+                </span>
+            
+            
+        </div>
+    
+        <div class="arr">
+            
+	
+		<a href="/2/hi/africa/1677248.stm">
+			
+			
+			
+			Nujoma 'will not seek fourth term'
+			
+		</a>
+		
+			<br />
+		
+	
+
+            
+                <span class="sad">
+                    26 Nov 01
+
+&nbsp;|&nbsp;
+                    Africa
+                    
+                </span>
+            
+            
+        </div>
+    
+        <div class="arr">
+            
+	
+		<a href="/2/hi/africa/1161965.stm">
+			
+			
+			
+			Nujoma's war on waste
+			
+		</a>
+		
+			<br />
+		
+	
+
+            
+                <span class="sad">
+                    09 Feb 01
+
+&nbsp;|&nbsp;
+                    Africa
+                    
+                </span>
+            
+            
+        </div>
+    
+        <div class="arr">
+            
+	
+		<a href="/2/hi/africa/country_profiles/1063245.stm">
+			
+			
+--
+</html>
