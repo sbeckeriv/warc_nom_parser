@@ -1,0 +1,47 @@
+WARC/1.0
+WARC-Type: warcinfo
+WARC-Date: 2012-05-04T17:50:32Z
+WARC-Filename: MEM-20120504175032789-00000-~~.warc.gz
+WARC-Record-ID: <urn:uuid:6c9458de-88ff-4042-8bac-3f7088259637>
+Content-Type: application/warc-fields
+Content-Length: 124
+
+format:WARC File Format 1.0
+conformsTo:http://bibnum.bnf.fr/WARC/WARC_ISO_28500_version1_latestdraft.pdf
+operator:tr-achive
+
+
+WARC/1.0
+WARC-Type: request
+WARC-Target-URI: http://dans.knaw.nl/nieuws/rss.xml
+WARC-Date: 2012-04-29T00:00:30Z
+WARC-Concurrent-To: <urn:uuid:7e2b792d-3048-4c72-9b3e-c32db0e30091>
+WARC-Record-ID: <urn:uuid:a3408fc2-a0eb-4e2a-b2c8-5bda5d2f36dd>
+Content-Type: application/http; msgtype=request
+Content-Length: 336
+
+GET /nieuws/rss.xml HTTP/1.1
+User-Agent:Feedfetcher-Google; (+http://www.google.com/feedfetcher.html; 12 subscribers; feed-id=4533563086221712840)
+Accept:*/*
+Accept-Encoding:gzip,deflate
+Connection:Keep-alive
+Host:www.dans.knaw.nl
+If-Modified-Since:Sat, 28 Apr 2012 22:16:44 GMT
+If-None-Match:"6df79016d88fe9071b56e0cb16275936"
+
+
+WARC/1.0
+WARC-Type: metadata
+WARC-Target-URI: http://dans.knaw.nl/nieuws/rss.xml
+WARC-Date: 2012-04-29T00:00:30Z
+WARC-Concurrent-To: <urn:uuid:7e2b792d-3048-4c72-9b3e-c32db0e30091>
+WARC-Record-ID: <urn:uuid:ef2e657d-aff5-4ff5-93d0-81a8f6647bd2>
+Content-Type: application/warc-fields
+Content-Length: 107
+
+start:2012-04-29T00:00:30Z
+end:2012-04-29T02:42:06Z
+digest:RUN3SNH35XDGQAXRWAA654YDHJT7AL7K
+numberOfHits:8
+
+
