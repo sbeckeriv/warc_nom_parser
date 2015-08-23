@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["ErrorCode",""]],"fn":[["add_error_pattern",""],["code_from_offset",""],["compare_error_paths",""],["error_to_list",""],["generate_colors",""],["prepare_errors",""],["print_codes",""],["print_error",""],["print_offsets",""],["reset_color",""],["slice_to_offsets",""],["write_color",""]],"trait":[["AsBytes",""],["HexDisplay",""]]});
