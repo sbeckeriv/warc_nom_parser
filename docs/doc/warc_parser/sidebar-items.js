@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["record","Parses one record and returns an IResult from nom"],["records",""]],"struct":[["Record","The WArc `Record` struct"]]});
