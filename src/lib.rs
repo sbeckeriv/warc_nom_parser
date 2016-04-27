@@ -3,8 +3,7 @@
 //!Takes data and separates records in headers and content.
 #[macro_use]
 extern crate nom;
-use nom::{IResult, space, Needed, Err};
-use nom::IResult::*;
+use nom::{IResult, space, Needed};
 use std::str;
 use std::collections::HashMap;
 use std::fmt::{Debug, Formatter, Result};
