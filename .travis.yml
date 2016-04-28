@@ -1,0 +1,16 @@
+language: rust
+rust:
+  - nightly
+script:
+  - cargo build
+  - cargo test
+env:
+  global:
+os:
+  - linux
+  - osx
+
+branches:
+  only:
+    - master
+
