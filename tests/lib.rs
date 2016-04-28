@@ -4,7 +4,7 @@ extern crate nom;
 mod tests {
     use std::fs::File;
     use std::io::prelude::*;
-    use nom::IResult;
+    use nom::{IResult, Needed};
 
     fn read_sample_file(sample_name: &str) -> Vec<u8> {
         let full_path = "sample/".to_string() + sample_name;
@@ -43,6 +43,18 @@ mod tests {
                 assert_eq!(empty, i);
                 assert_eq!(13, record.headers.len());
             }
+        }
+    }
+
+    #[test]
+    fn it_parses_incomplete() {
+        let bbc = read_sample_file("bbc.warc");
+        let parsed = warc_parser::record(&bbc[..bbc.len() - 10]);
+        assert!(!parsed.is_done());
+        match parsed {
+            IResult::Error(_) => assert!(false),
+            IResult::Incomplete(needed) => assert_eq!(Needed::Size(10), needed),
+            IResult::Done(_, _) => assert!(false),
         }
     }
 }
