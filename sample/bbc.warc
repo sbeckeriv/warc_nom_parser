@@ -2,7 +2,7 @@ WARC/1.0
 WARC-Type: response
 WARC-Date: 2014-08-02T09:52:13Z
 WARC-Record-ID: <urn:uuid:ffbfb0c0-6456-42b0-af03-3867be6fc09f>
-Content-Length: 43428
+Content-Length: 26052
 Content-Type: application/http; msgtype=response
 WARC-Warcinfo-ID: <urn:uuid:3169ca8e-39a6-42e9-a4e3-9f001f067bdf>
 WARC-Concurrent-To: <urn:uuid:d99f2a24-158a-4c77-bb0a-3cccd40aad56>
