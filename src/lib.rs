@@ -3,10 +3,11 @@
 //! Takes data and separates records in headers and content.
 #[macro_use]
 extern crate nom;
-use nom::{IResult, space, Needed};
+use nom::{space, Needed};
 use std::str;
 use std::collections::HashMap;
 use std::fmt::{Debug, Formatter, Result};
+use nom::{Producer, Consumer, ConsumerState, Input, Move, MemProducer, IResult, HexDisplay};
 
 /// The WArc `Record` struct
 pub struct Record {
@@ -15,6 +16,80 @@ pub struct Record {
     /// Content for call in a raw format
     pub content: Vec<u8>,
 }
+
+#[derive(PartialEq,Eq,Debug)]
+enum State {
+    Beginning,
+    End,
+    Done,
+    Error,
+}
+
+struct WarcConsumer {
+    c_state: ConsumerState<usize, (), Move>,
+    state: State,
+    counter: usize,
+    records: Vec<Record>,
+}
+
+impl<'a> Consumer<&'a[u8], usize, (), Move> for WarcConsumer {
+    fn state(&self) -> &ConsumerState<usize, (), Move> {
+        &self.c_state
+    }
+
+    fn handle(&mut self, input: Input<&'a [u8]>) -> &ConsumerState<usize, (), Move> {
+        match self.state {
+            State::Beginning => {
+                match input {
+                    Input::Empty | Input::Eof(None) => {
+                        self.state = State::Error;
+                        self.c_state = ConsumerState::Error(());
+                    }
+                    Input::Element(sl) | Input::Eof(Some(sl)) => {
+                        match record_complete(sl) {
+                            IResult::Error(_) => {
+                                self.state = State::End;
+                                self.c_state = ConsumerState::Continue(Move::Consume(0));
+                            }
+                            IResult::Incomplete(n) => {
+                                println!("Middle got Incomplete({:?})", n);
+                                self.c_state = ConsumerState::Continue(Move::Await(n));
+                            }
+                            IResult::Done(i, record) => {
+                                self.records.push(record);
+                                self.counter = self.counter + 1;
+                                self.state = State::Beginning;
+                                self.c_state = ConsumerState::Continue(Move::Consume(sl.offset(i)));
+                            }
+                        }
+                    }
+                }
+            }
+            State::End => {
+                match input {
+                    Input::Empty | Input::Eof(None) => {
+                        self.state = State::Error;
+                        self.c_state = ConsumerState::Error(());
+                    }
+                    Input::Element(sl) | Input::Eof(Some(sl)) => {
+                        self.state = State::Done;
+                        // hack figure out what the offset should be.. :w
+                        //
+                        self.c_state = ConsumerState::Done(Move::Consume(sl.offset(&[])),
+                                                           self.counter);
+                    }
+                }
+            }
+            State::Done | State::Error => {
+                // this should not be called
+                self.state = State::Error;
+                self.c_state = ConsumerState::Error(())
+            }
+        };
+        &self.c_state
+    }
+}
+
 impl<'a> Debug for Record {
     fn fmt(&self, form: &mut Formatter) -> Result {
         write!(form, "\nHeaders:\n").unwrap();
@@ -148,7 +223,9 @@ pub fn record(input: &[u8]) -> IResult<&[u8], Record> {
                         bytes_needed = length_number - i.len();
                     }
                 }
-                _ => { /* TODO: Custom error type, this field is mandatory */ }
+                _ => {
+                    // TODO: Custom error type, this field is mandatory
+                }
             }
             match content {
                 Some(content) => {
