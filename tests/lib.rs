@@ -14,9 +14,11 @@ mod tests {
         s
     }
     use warc_parser;
-    //#[test]
+    #[test]
     fn it_stream_parses_file() {
-        let mut producer = FileProducer::new("sample/plethora.warc", 4000).unwrap();
+        let mut producer = FileProducer::new("sample/plethora.warc", 50000).unwrap();
+        let examples = read_sample_file("plethora.warc");
+        let mut producer =  MemProducer::new(&examples, 49999);
         let mut consumer = warc_parser::WarcConsumer {
             state: warc_parser::State::Beginning,
             c_state: ConsumerState::Continue(Move::Consume(0)),
@@ -24,6 +26,7 @@ mod tests {
             records: Vec::new(),
         };
         while let &ConsumerState::Continue(_) = producer.apply(&mut consumer) {
+            println!("record count:{:?}", consumer.records.len());
         }
 
         assert_eq!(consumer.counter, 8);
