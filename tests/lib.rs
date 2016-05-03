@@ -5,7 +5,7 @@ mod tests {
     use std::fs::File;
     use std::io::prelude::*;
     use nom::{IResult, Needed, FileProducer};
-    use nom::{Producer, Consumer, ConsumerState, Input, Move, MemProducer, HexDisplay};
+    use nom::{Producer, Consumer, ConsumerState,  Move};
     fn read_sample_file(sample_name: &str) -> Vec<u8> {
         let full_path = "sample/".to_string() + sample_name;
         let mut f = File::open(full_path).unwrap();
@@ -15,7 +15,7 @@ mod tests {
     }
     use warc_parser;
     #[test]
-    fn it_stream_parses_single_file() {
+    fn it_stream_parses_incomplete_file() {
         let mut producer = FileProducer::new("sample/bbc.warc", 5000).unwrap();
         let mut consumer = warc_parser::WarcConsumer {
             state: warc_parser::State::Beginning,
@@ -26,8 +26,8 @@ mod tests {
         while let &ConsumerState::Continue(_) = producer.apply(&mut consumer) {
             println!("record count:{:?}", consumer.records.len());
         }
-        assert_eq!(consumer.counter, 8);
-        assert_eq!(consumer.state, warc_parser::State::Done);
+        assert_eq!(consumer.counter, 0);
+        assert_eq!(consumer.state, warc_parser::State::Error);
     }
 
     #[test]

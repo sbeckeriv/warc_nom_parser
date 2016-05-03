@@ -61,7 +61,7 @@ impl<'a> Consumer<&'a [u8], usize, (), Move> for WarcConsumer {
                             IResult::Incomplete(n) => {
                                 println!("Middle got Incomplete({:?})", n);
                                 if !end_of_file {
-                                    self.c_state = ConsumerState::Continue(Move::Await(n));
+                                  self.c_state = ConsumerState::Continue(Move::Await(n));
                                 } else {
                                     self.state = State::End;
                                 }
