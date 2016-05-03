@@ -40,7 +40,6 @@ impl<'a> Consumer<&'a [u8], usize, (), Move> for WarcConsumer {
     }
 
     fn handle(&mut self, input: Input<&'a [u8]>) -> &ConsumerState<usize, (), Move> {
-        fn newthing() {}
         match self.state {
             State::Beginning => {
                 println!("Beginning");
@@ -50,8 +49,7 @@ impl<'a> Consumer<&'a [u8], usize, (), Move> for WarcConsumer {
                 };
                 match input {
                     Input::Empty | Input::Eof(None) => {
-                        println!("empt");
-                        self.state = State::Error;
+                        self.state = State::Done;
                         self.c_state = ConsumerState::Error(());
                     }
                     Input::Element(sl) | Input::Eof(Some(sl)) => {
@@ -59,7 +57,6 @@ impl<'a> Consumer<&'a [u8], usize, (), Move> for WarcConsumer {
                         match record_complete(sl) {
                             IResult::Error(_) => {
                                 self.state = State::End;
-                                self.c_state = ConsumerState::Continue(Move::Consume(0));
                             }
                             IResult::Incomplete(n) => {
                                 println!("Middle got Incomplete({:?})", n);
@@ -67,12 +64,9 @@ impl<'a> Consumer<&'a [u8], usize, (), Move> for WarcConsumer {
                                     self.c_state = ConsumerState::Continue(Move::Await(n));
                                 } else {
                                     self.state = State::End;
-                                    self.c_state = ConsumerState::Continue(Move::Consume(0));
-
                                 }
                             }
                             IResult::Done(i, entry) => {
-                                println!("i carry over:{:?}", i.len());
                                 self.records.push(entry);
                                 self.counter = self.counter + 1;
                                 self.state = State::Beginning;
@@ -83,23 +77,9 @@ impl<'a> Consumer<&'a [u8], usize, (), Move> for WarcConsumer {
                 }
             }
             State::End => {
-                println!("end");
-                match input {
-                    Input::Empty | Input::Eof(None) => {
-                        self.state = State::Error;
-                        self.c_state = ConsumerState::Error(());
-                    }
-                    Input::Element(sl) | Input::Eof(Some(sl)) => {
-                        self.state = State::Done;
-                        // hack figure out what the offset should be.. :w
-                        //
-                        self.c_state = ConsumerState::Done(Move::Consume(sl.offset(&[])),
-                                                           self.counter);
-                    }
-                }
+               self.state = State::Done;
             }
             State::Done | State::Error => {
-                // this should not be called
                 self.state = State::Error;
                 self.c_state = ConsumerState::Error(())
             }
