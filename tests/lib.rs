@@ -24,7 +24,6 @@ mod tests {
             records: Vec::new(),
         };
         while let &ConsumerState::Continue(_) = producer.apply(&mut consumer) {
-            println!("record count:{:?}", consumer.records.len());
         }
         assert_eq!(consumer.counter, 0);
         assert_eq!(consumer.state, warc_parser::State::Error);
@@ -40,7 +39,6 @@ mod tests {
             records: Vec::new(),
         };
         while let &ConsumerState::Continue(_) = producer.apply(&mut consumer) {
-            println!("record count:{:?}", consumer.records.len());
         }
         assert_eq!(consumer.counter, 8);
         assert_eq!(consumer.state, warc_parser::State::Done);

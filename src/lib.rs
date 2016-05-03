@@ -42,7 +42,6 @@ impl<'a> Consumer<&'a [u8], usize, (), Move> for WarcConsumer {
     fn handle(&mut self, input: Input<&'a [u8]>) -> &ConsumerState<usize, (), Move> {
         match self.state {
             State::Beginning => {
-                println!("Beginning");
                 let end_of_file = match input {
                     Input::Eof(_) => true,
                     _ => false,
@@ -53,13 +52,11 @@ impl<'a> Consumer<&'a [u8], usize, (), Move> for WarcConsumer {
                         self.c_state = ConsumerState::Error(());
                     }
                     Input::Element(sl) | Input::Eof(Some(sl)) => {
-                        println!("lement ");
                         match record_complete(sl) {
                             IResult::Error(_) => {
                                 self.state = State::End;
                             }
                             IResult::Incomplete(n) => {
-                                println!("Middle got Incomplete({:?})", n);
                                 if !end_of_file {
                                   self.c_state = ConsumerState::Continue(Move::Await(n));
                                 } else {
@@ -199,7 +196,6 @@ named!(warc_header<&[u8], ((&str, &str), Vec<(&str,&str)>) >,
 ///  }
 /// ```
 pub fn record(input: &[u8]) -> IResult<&[u8], Record> {
-    println!("parsing record");
     let mut h: HashMap<String, String> = HashMap::new();
     // TODO if the stream parser does not get all the header it fails .
     // like a default size of 10 doesnt for for a producer
@@ -215,8 +211,6 @@ pub fn record(input: &[u8]) -> IResult<&[u8], Record> {
             let mut bytes_needed = 1;
             match h.get("Content-Length") {
                 Some(length) => {
-                    println!("len: #{:?}", length);
-                    println!("len i: #{:?}", i.len());
                     let length_number = length.parse::<usize>().unwrap();
                     if length_number <= i.len() {
                         content = Some(&i[0..length_number as usize]);
@@ -227,7 +221,6 @@ pub fn record(input: &[u8]) -> IResult<&[u8], Record> {
                     }
                 }
                 _ => {
-                    println!("len error");
                     // TODO: Custom error type, this field is mandatory
                 }
             }
@@ -237,18 +230,15 @@ pub fn record(input: &[u8]) -> IResult<&[u8], Record> {
                         headers: h,
                         content: content.to_vec(),
                     };
-                    println!("Record done");
                     IResult::Done(i, entry)
                 }
                 None => IResult::Incomplete(Needed::Size(bytes_needed)),
             }
         }
         IResult::Incomplete(a) => {
-            println!("Record incomplete");
             IResult::Incomplete(a)
         }
         IResult::Error(a) => {
-            println!("Record error");
             IResult::Error(a)
         }
     }
