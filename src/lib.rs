@@ -40,16 +40,21 @@ impl<'a> Consumer<&'a [u8], usize, (), Move> for WarcConsumer {
     }
 
     fn handle(&mut self, input: Input<&'a [u8]>) -> &ConsumerState<usize, (), Move> {
+        fn newthing() {}
         match self.state {
             State::Beginning => {
                 println!("Beginning");
+                let end_of_file = match input {
+                    Input::Eof(_) => true,
+                    _ => false,
+                };
                 match input {
                     Input::Empty | Input::Eof(None) => {
                         println!("empt");
                         self.state = State::Error;
                         self.c_state = ConsumerState::Error(());
                     }
-                    ref a @ Input::Element(sl) | ref a @ Input::Eof(Some(sl)) => {
+                    Input::Element(sl) | Input::Eof(Some(sl)) => {
                         println!("lement ");
                         match record_complete(sl) {
                             IResult::Error(_) => {
@@ -58,15 +63,12 @@ impl<'a> Consumer<&'a [u8], usize, (), Move> for WarcConsumer {
                             }
                             IResult::Incomplete(n) => {
                                 println!("Middle got Incomplete({:?})", n);
-                                match *a {
-                                    Input::Element(_) => {
-                                        self.c_state = ConsumerState::Continue(Move::Await(n));
-                                    }
-                                    _ => {
-                                        self.state = State::End;
-                                        self.c_state = ConsumerState::Continue(Move::Consume(0));
+                                if !end_of_file {
+                                    self.c_state = ConsumerState::Continue(Move::Await(n));
+                                } else {
+                                    self.state = State::End;
+                                    self.c_state = ConsumerState::Continue(Move::Consume(0));
 
-                                    }
                                 }
                             }
                             IResult::Done(i, entry) => {

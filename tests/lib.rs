@@ -18,7 +18,7 @@ mod tests {
     fn it_stream_parses_file() {
         let mut producer = FileProducer::new("sample/plethora.warc", 50000).unwrap();
         let examples = read_sample_file("plethora.warc");
-        let mut producer =  MemProducer::new(&examples, 49999);
+        //let mut producer =  MemProducer::new(&examples, 49999);
         let mut consumer = warc_parser::WarcConsumer {
             state: warc_parser::State::Beginning,
             c_state: ConsumerState::Continue(Move::Consume(0)),
