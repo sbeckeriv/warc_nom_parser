@@ -6,7 +6,7 @@ extern crate nom;
 use nom::{space, Needed};
 use std::str;
 use std::collections::HashMap;
-use std::fmt::{Debug, Formatter, Result};
+use std::fmt;
 use nom::{Consumer, ConsumerState, Input, Move, IResult, HexDisplay, FileProducer, Producer};
 
 /// The WArc `Record` struct
@@ -35,17 +35,41 @@ pub struct WarcConsumer {
     pub last_record: Option<Record>,
 }
 
-pub struct WarcIterator{
-    pub file_producer: FileProducer ,
-    pub consumer: WarcConsumer
+impl WarcConsumer {
+    pub fn new() -> Self {
+        WarcConsumer {
+            state: State::Beginning,
+            c_state: ConsumerState::Continue(Move::Consume(0)),
+            counter: 0,
+            last_record: None,
+        }
+    }
 }
 
-impl Iterator for WarcIterator{
+pub struct WarcStreamer {
+    file_producer: FileProducer,
+    consumer: WarcConsumer,
+}
+
+impl WarcStreamer {
+    pub fn new(file: &str) -> Result<Self, String> {
+        match FileProducer::new(file, 5000) {
+            Ok(producer) => {
+                Ok(WarcStreamer {
+                    file_producer: producer,
+                    consumer: WarcConsumer::new(),
+                })
+            }
+            Err(_) => Err(format!("Could not create FileProducer for {:?}", file)),
+        }
+    }
+}
+impl Iterator for WarcStreamer {
     type Item = Record;
 
-    fn next(&mut self) -> Option<Self::Item>{
+    fn next(&mut self) -> Option<Self::Item> {
         self.file_producer.apply(&mut self.consumer);
-        match self.consumer.state{
+        match self.consumer.state {
             State::Error => None,
             _ => {
                 let result = self.consumer.last_record.clone();
@@ -79,7 +103,7 @@ impl<'a> Consumer<&'a [u8], usize, (), Move> for WarcConsumer {
                             }
                             IResult::Incomplete(n) => {
                                 if !end_of_file {
-                                  self.c_state = ConsumerState::Continue(Move::Await(n));
+                                    self.c_state = ConsumerState::Continue(Move::Await(n));
                                 } else {
                                     self.state = State::End;
                                 }
@@ -95,7 +119,7 @@ impl<'a> Consumer<&'a [u8], usize, (), Move> for WarcConsumer {
                 }
             }
             State::End => {
-               self.state = State::Done;
+                self.state = State::Done;
             }
             State::Done | State::Error => {
                 self.state = State::Error;
@@ -106,8 +130,8 @@ impl<'a> Consumer<&'a [u8], usize, (), Move> for WarcConsumer {
     }
 }
 
-impl<'a> Debug for Record {
-    fn fmt(&self, form: &mut Formatter) -> Result {
+impl<'a> fmt::Debug for Record {
+    fn fmt(&self, form: &mut fmt::Formatter) -> fmt::Result {
         write!(form, "\nHeaders:\n").unwrap();
         for (name, value) in &self.headers {
             write!(form, "{}", name).unwrap();
@@ -256,12 +280,8 @@ pub fn record(input: &[u8]) -> IResult<&[u8], Record> {
                 None => IResult::Incomplete(Needed::Size(bytes_needed)),
             }
         }
-        IResult::Incomplete(a) => {
-            IResult::Incomplete(a)
-        }
-        IResult::Error(a) => {
-            IResult::Error(a)
-        }
+        IResult::Incomplete(a) => IResult::Incomplete(a),
+        IResult::Error(a) => IResult::Error(a),
     }
 }
 

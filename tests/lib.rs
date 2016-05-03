@@ -14,6 +14,17 @@ mod tests {
         s
     }
     use warc_parser;
+   // TODO organize this mess
+    #[test]
+    fn it_iterators() {
+        let mut warc_streamer = warc_parser::WarcStreamer::new("sample/plethora.warc").unwrap();
+        let mut count = 0;
+        for record in warc_streamer{
+            println!("record::{:?}", record);
+            count += 1;
+        }
+        assert_eq!(count, 8);
+    }
     #[test]
     fn it_stream_parses_incomplete_file() {
         let mut producer = FileProducer::new("sample/bbc.warc", 5000).unwrap();
