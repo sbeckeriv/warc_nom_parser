@@ -49,8 +49,8 @@ impl<'a> Consumer<&'a [u8], usize, (), Move> for WarcConsumer {
                         self.state = State::Error;
                         self.c_state = ConsumerState::Error(());
                     }
-                    Input::Element(sl) | Input::Eof(Some(sl)) => {
-                        println!("lement " );
+                    ref a @ Input::Element(sl) | ref a @ Input::Eof(Some(sl)) => {
+                        println!("lement ");
                         match record_complete(sl) {
                             IResult::Error(_) => {
                                 self.state = State::End;
@@ -58,7 +58,16 @@ impl<'a> Consumer<&'a [u8], usize, (), Move> for WarcConsumer {
                             }
                             IResult::Incomplete(n) => {
                                 println!("Middle got Incomplete({:?})", n);
-                                self.c_state = ConsumerState::Continue(Move::Await(n));
+                                match *a {
+                                    Input::Element(_) => {
+                                        self.c_state = ConsumerState::Continue(Move::Await(n));
+                                    }
+                                    _ => {
+                                        self.state = State::End;
+                                        self.c_state = ConsumerState::Continue(Move::Consume(0));
+
+                                    }
+                                }
                             }
                             IResult::Done(i, entry) => {
                                 println!("i carry over:{:?}", i.len());
@@ -210,6 +219,8 @@ named!(warc_header<&[u8], ((&str, &str), Vec<(&str,&str)>) >,
 pub fn record(input: &[u8]) -> IResult<&[u8], Record> {
     println!("parsing record");
     let mut h: HashMap<String, String> = HashMap::new();
+    // TODO if the stream parser does not get all the header it fails .
+    // like a default size of 10 doesnt for for a producer
     match warc_header(input) {
         IResult::Done(mut i, tuple_vec) => {
             let (name, version) = tuple_vec.0;
@@ -253,10 +264,11 @@ pub fn record(input: &[u8]) -> IResult<&[u8], Record> {
         IResult::Incomplete(a) => {
             println!("Record incomplete");
             IResult::Incomplete(a)
-        },
+        }
         IResult::Error(a) => {
             println!("Record error");
-            IResult::Error(a)},
+            IResult::Error(a)
+        }
     }
 }
 
