@@ -21,7 +21,7 @@ mod tests {
             state: warc_parser::State::Beginning,
             c_state: ConsumerState::Continue(Move::Consume(0)),
             counter: 0,
-            records: Vec::new(),
+            last_record: None
         };
         while let &ConsumerState::Continue(_) = producer.apply(&mut consumer) {
         }
@@ -36,7 +36,7 @@ mod tests {
             state: warc_parser::State::Beginning,
             c_state: ConsumerState::Continue(Move::Consume(0)),
             counter: 0,
-            records: Vec::new(),
+            last_record: None
         };
         while let &ConsumerState::Continue(_) = producer.apply(&mut consumer) {
         }

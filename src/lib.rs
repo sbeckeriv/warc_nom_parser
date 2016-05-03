@@ -7,9 +7,10 @@ use nom::{space, Needed};
 use std::str;
 use std::collections::HashMap;
 use std::fmt::{Debug, Formatter, Result};
-use nom::{Consumer, ConsumerState, Input, Move, IResult, HexDisplay};
+use nom::{Consumer, ConsumerState, Input, Move, IResult, HexDisplay, FileProducer, Producer};
 
 /// The WArc `Record` struct
+#[derive(Clone)]
 pub struct Record {
     // lazy design should not use pub
     /// WArc headers
@@ -18,7 +19,7 @@ pub struct Record {
     pub content: Vec<u8>,
 }
 
-#[derive(PartialEq,Eq,Debug)]
+#[derive(PartialEq,Eq,Debug,Clone)]
 pub enum State {
     Beginning,
     End,
@@ -31,7 +32,27 @@ pub struct WarcConsumer {
     pub state: State,
     // bad design should not be pub
     pub counter: usize,
-    pub records: Vec<Record>,
+    pub last_record: Option<Record>,
+}
+
+pub struct WarcIterator{
+    pub file_producer: FileProducer ,
+    pub consumer: WarcConsumer
+}
+
+impl Iterator for WarcIterator{
+    type Item = Record;
+
+    fn next(&mut self) -> Option<Self::Item>{
+        self.file_producer.apply(&mut self.consumer);
+        match self.consumer.state{
+            State::Error => None,
+            _ => {
+                let result = self.consumer.last_record.clone();
+                result
+            }
+        }
+    }
 }
 
 impl<'a> Consumer<&'a [u8], usize, (), Move> for WarcConsumer {
@@ -64,7 +85,7 @@ impl<'a> Consumer<&'a [u8], usize, (), Move> for WarcConsumer {
                                 }
                             }
                             IResult::Done(i, entry) => {
-                                self.records.push(entry);
+                                self.last_record = Some(entry);
                                 self.counter = self.counter + 1;
                                 self.state = State::Beginning;
                                 self.c_state = ConsumerState::Continue(Move::Consume(sl.offset(i)));
