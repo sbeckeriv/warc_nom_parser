@@ -60,8 +60,9 @@ impl<'a> Consumer<&'a [u8], usize, (), Move> for WarcConsumer {
                                 println!("Middle got Incomplete({:?})", n);
                                 self.c_state = ConsumerState::Continue(Move::Await(n));
                             }
-                            IResult::Done(i, record) => {
-                                self.records.push(record);
+                            IResult::Done(i, entry) => {
+                                println!("i carry over:{:?}", i.len());
+                                self.records.push(entry);
                                 self.counter = self.counter + 1;
                                 self.state = State::Beginning;
                                 self.c_state = ConsumerState::Continue(Move::Consume(sl.offset(i)));
@@ -199,14 +200,15 @@ named!(warc_header<&[u8], ((&str, &str), Vec<(&str,&str)>) >,
 ///  match parsed{
 ///      IResult::Error(_) => assert!(false),
 ///      IResult::Incomplete(_) => assert!(false),
-///      IResult::Done(i, record) => {
+///      IResult::Done(i, entry) => {
 ///          let empty: Vec<u8> =  Vec::new();
 ///          assert_eq!(empty, i);
-///          assert_eq!(13, record.headers.len());
+///          assert_eq!(13, entry.headers.len());
 ///      }
 ///  }
 /// ```
 pub fn record(input: &[u8]) -> IResult<&[u8], Record> {
+    println!("parsing record");
     let mut h: HashMap<String, String> = HashMap::new();
     match warc_header(input) {
         IResult::Done(mut i, tuple_vec) => {
@@ -220,6 +222,8 @@ pub fn record(input: &[u8]) -> IResult<&[u8], Record> {
             let mut bytes_needed = 1;
             match h.get("Content-Length") {
                 Some(length) => {
+                    println!("len: #{:?}", length);
+                    println!("len i: #{:?}", i.len());
                     let length_number = length.parse::<usize>().unwrap();
                     if length_number <= i.len() {
                         content = Some(&i[0..length_number as usize]);
@@ -230,33 +234,40 @@ pub fn record(input: &[u8]) -> IResult<&[u8], Record> {
                     }
                 }
                 _ => {
+                    println!("len error");
                     // TODO: Custom error type, this field is mandatory
                 }
             }
             match content {
                 Some(content) => {
-                    let record = Record {
+                    let entry = Record {
                         headers: h,
                         content: content.to_vec(),
                     };
-                    IResult::Done(i, record)
+                    println!("Record done");
+                    IResult::Done(i, entry)
                 }
                 None => IResult::Incomplete(Needed::Size(bytes_needed)),
             }
         }
-        IResult::Incomplete(a) => IResult::Incomplete(a),
-        IResult::Error(a) => IResult::Error(a),
+        IResult::Incomplete(a) => {
+            println!("Record incomplete");
+            IResult::Incomplete(a)
+        },
+        IResult::Error(a) => {
+            println!("Record error");
+            IResult::Error(a)},
     }
 }
 
 named!(record_complete <&[u8], Record >,
     chain!(
-        record: record              ~
+        entry: record              ~
         tag!("\r")?                 ~
         tag!("\n")                  ~
         tag!("\r")?                 ~
         tag!("\n")                  ,
-        move ||{record}
+        move ||{entry}
     )
 );
 
