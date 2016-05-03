@@ -7,10 +7,11 @@ use nom::{space, Needed};
 use std::str;
 use std::collections::HashMap;
 use std::fmt::{Debug, Formatter, Result};
-use nom::{Producer, Consumer, ConsumerState, Input, Move, MemProducer, IResult, HexDisplay};
+use nom::{Consumer, ConsumerState, Input, Move, IResult, HexDisplay};
 
 /// The WArc `Record` struct
 pub struct Record {
+    // lazy design should not use pub
     /// WArc headers
     pub headers: HashMap<String, String>,
     /// Content for call in a raw format
@@ -18,21 +19,22 @@ pub struct Record {
 }
 
 #[derive(PartialEq,Eq,Debug)]
-enum State {
+pub enum State {
     Beginning,
     End,
     Done,
     Error,
 }
 
-struct WarcConsumer {
-    c_state: ConsumerState<usize, (), Move>,
-    state: State,
-    counter: usize,
-    records: Vec<Record>,
+pub struct WarcConsumer {
+    pub c_state: ConsumerState<usize, (), Move>,
+    pub state: State,
+    // bad design should not be pub
+    pub counter: usize,
+    pub records: Vec<Record>,
 }
 
-impl<'a> Consumer<&'a[u8], usize, (), Move> for WarcConsumer {
+impl<'a> Consumer<&'a [u8], usize, (), Move> for WarcConsumer {
     fn state(&self) -> &ConsumerState<usize, (), Move> {
         &self.c_state
     }
@@ -40,12 +42,15 @@ impl<'a> Consumer<&'a[u8], usize, (), Move> for WarcConsumer {
     fn handle(&mut self, input: Input<&'a [u8]>) -> &ConsumerState<usize, (), Move> {
         match self.state {
             State::Beginning => {
+                println!("Beginning");
                 match input {
                     Input::Empty | Input::Eof(None) => {
+                        println!("empt");
                         self.state = State::Error;
                         self.c_state = ConsumerState::Error(());
                     }
                     Input::Element(sl) | Input::Eof(Some(sl)) => {
+                        println!("lement " );
                         match record_complete(sl) {
                             IResult::Error(_) => {
                                 self.state = State::End;
@@ -66,6 +71,7 @@ impl<'a> Consumer<&'a[u8], usize, (), Move> for WarcConsumer {
                 }
             }
             State::End => {
+                println!("end");
                 match input {
                     Input::Empty | Input::Eof(None) => {
                         self.state = State::Error;
