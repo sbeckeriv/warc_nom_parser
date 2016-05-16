@@ -1,6 +1,8 @@
 //! Web ARChive format parser
 //!
 //! Takes data and separates records in headers and content.
+#![cfg_attr(feature="clippy", feature(plugin))]
+#![cfg_attr(feature="clippy", plugin(clippy))]
 #[macro_use]
 extern crate nom;
 use nom::{space, Needed};

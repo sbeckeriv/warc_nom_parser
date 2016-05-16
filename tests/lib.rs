@@ -17,7 +17,7 @@ mod tests {
     // TODO organize this mess
     #[test]
     fn it_iterators() {
-        let mut warc_streamer = warc_parser::WarcStreamer::new("sample/plethora.warc").unwrap();
+        let warc_streamer = warc_parser::WarcStreamer::new("sample/plethora.warc").unwrap();
         let mut count = 0;
         for record in warc_streamer {
             println!("record::{:?}", record);
