@@ -59,6 +59,7 @@ mod tests {
         assert_eq!(consumer.counter, 8);
         assert_eq!(consumer.state, warc_parser::State::Done);
     }
+*/
 
     #[test]
     fn it_parses_a_plethora() {
@@ -67,14 +68,14 @@ mod tests {
         assert!(parsed.is_ok());
         match parsed {
             Err(_) => assert!(false),
-            Ok(((i, records)) => {
+            Ok((i, records)) => {
                 let empty: Vec<u8> = Vec::new();
                 assert_eq!(empty, i);
                 assert_eq!(8, records.len());
             }
         }
     }
-*/
+
     #[test]
     fn it_parses_single() {
         let bbc = read_sample_file("bbc.warc");
