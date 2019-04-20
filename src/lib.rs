@@ -6,7 +6,6 @@ extern crate nom;
 use std::str;
 use std::collections::HashMap;
 use std::fmt;
-//use nom::{Offset, space, Needed, Consumer, ConsumerState, Input, Move, IResult, FileProducer, Producer};
 use nom::{Offset, space, Needed, IResult, Err};
 
 /// The WArc `Record` struct
@@ -18,120 +17,6 @@ pub struct Record {
     /// Content for call in a raw format
     pub content: Vec<u8>,
 }
-
-/*
-#[derive(PartialEq,Eq,Debug,Clone)]
-pub enum State {
-    Beginning,
-    End,
-    Done,
-    Error,
-}
-
-pub struct WarcConsumer {
-    pub c_state: ConsumerState<usize, (), Move>,
-    pub state: State,
-    // bad design should not be pub
-    pub counter: usize,
-    pub last_record: Option<Record>,
-}
-
-impl WarcConsumer {
-    pub fn new() -> Self {
-        WarcConsumer {
-            state: State::Beginning,
-            c_state: ConsumerState::Continue(Move::Consume(0)),
-            counter: 0,
-            last_record: None,
-        }
-    }
-}
-
-pub struct WarcStreamer {
-    file_producer: FileProducer,
-    consumer: WarcConsumer,
-}
-
-impl WarcStreamer {
-    pub fn new(file: &str) -> Result<Self, String> {
-        match FileProducer::new(file, 5000) {
-            Ok(producer) => {
-                Ok(WarcStreamer {
-                    file_producer: producer,
-                    consumer: WarcConsumer::new(),
-                })
-            }
-            Err(_) => Err(format!("Could not create FileProducer for {:?}", file)),
-        }
-    }
-}
-
-impl Iterator for WarcStreamer {
-    type Item = Record;
-
-    fn next(&mut self) -> Option<Self::Item> {
-        self.file_producer.apply(&mut self.consumer);
-        match self.consumer.state {
-            State::Error => None,
-            _ => {
-                let result = self.consumer.last_record.clone();
-                result
-            }
-        }
-    }
-}
-
-impl<'a> Consumer<&'a [u8], usize, (), Move> for WarcConsumer {
-    fn state(&self) -> &ConsumerState<usize, (), Move> {
-        &self.c_state
-    }
-
-    fn handle(&mut self, input: Input<&'a [u8]>) -> &ConsumerState<usize, (), Move> {
-        match self.state {
-            State::Beginning => {
-                let end_of_file = match input {
-                    Input::Eof(_) => true,
-                    _ => false,
-                };
-                match input {
-                    Input::Empty | Input::Eof(None) => {
-                        self.state = State::Done;
-                        self.c_state = ConsumerState::Error(());
-                    }
-                    Input::Element(sl) | Input::Eof(Some(sl)) => {
-                        match record_complete(sl) {
-                            IResult::Error(_) => {
-                                self.state = State::End;
-                            }
-                            IResult::Incomplete(n) => {
-                                if !end_of_file {
-                                    self.c_state = ConsumerState::Continue(Move::Await(n));
-                                } else {
-                                    self.state = State::End;
-                                }
-                            }
-                            IResult::Done(i, entry) => {
-                                self.last_record = Some(entry);
-                                self.counter = self.counter + 1;
-                                self.state = State::Beginning;
-                                self.c_state = ConsumerState::Continue(Move::Consume(sl.offset(i)));
-                            }
-                        }
-                    }
-                }
-            }
-            State::End => {
-                self.state = State::Done;
-            }
-            State::Done | State::Error => {
-                self.state = State::Error;
-                self.c_state = ConsumerState::Error(())
-            }
-        };
-        &self.c_state
-    }
-}
-*/
 
 impl<'a> fmt::Debug for Record {
     fn fmt(&self, form: &mut fmt::Formatter) -> fmt::Result {
