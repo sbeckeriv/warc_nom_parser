@@ -20,7 +20,6 @@ pub struct Record {
 }
 
 /*
-
 #[derive(PartialEq,Eq,Debug,Clone)]
 pub enum State {
     Beginning,
@@ -66,6 +65,7 @@ impl WarcStreamer {
         }
     }
 }
+
 impl Iterator for WarcStreamer {
     type Item = Record;
 
