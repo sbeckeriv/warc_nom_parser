@@ -1,1 +1,0 @@
-initSidebarItems({"enum":[["Err",""],["IResult","Holds the result of parsing functions"],["Needed",""]],"trait":[["GetInput",""],["GetOutput",""]]});

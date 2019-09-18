@@ -1,1 +1,0 @@
-initSidebarItems({"enum":[["ConsumerState","Holds the current state of the consumer"]],"trait":[["Consumer","Implement the consume method, taking a byte array as input and returning a consumer state"]]});
